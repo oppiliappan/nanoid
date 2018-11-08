@@ -2,29 +2,16 @@
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "alphabet.h"
 
+// custom alphabet pool and length
 char* custom(char alphs[], int size);
+
+// custom length
 char* generate(int size);
+
+// default character pool and 21 in length
 char* simple();
-
-int main() {
-    srand(time(0));
-
-    char custom_alphs[] = {
-        'a', 'b', 'c', 'd',
-        '\0'
-    };
-    char *id0 = custom(custom_alphs, 21);
-    printf("%s\n", id0);
-
-    char *id1 = generate(10);
-    printf("%s\n", id1);
-
-    char *id2 = simple();
-    printf("%s\n", id2);
-}
 
 char* custom(char alphs[], int size) {
     int alph_size = strlen(alphs) - 1;

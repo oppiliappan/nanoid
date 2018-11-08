@@ -23,7 +23,6 @@ char* simple();
 
 
 char* custom(char alphs[], int size) {
-    srand(time(NULL));
     int alph_size = strlen(alphs) - 1;
     char *id = (char *) malloc(sizeof(char) * 3);
 
@@ -45,5 +44,5 @@ char* generate(int size) {
 }
 
 char* simple() {
-    return custom(alphs, 21);
+    return generate(21);
 }

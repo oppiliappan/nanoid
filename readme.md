@@ -1,5 +1,5 @@
-# nanoid.h
-> A single header [NanoID](https://github.com/ai/nanoid) implementation in C
+# nanoid.h  
+A 1.2 Kb single header [NanoID](https://github.com/ai/nanoid) implementation in C
 
 ## What is NanoID?
 NanoID is a tiny, secure URL-friendly unique string ID generator.  
@@ -14,27 +14,21 @@ And it's **compact**. It uses a larger alphabet than the standard UUID (`A-Za-z0
 
 This header file exposes 3 functions.  
 
-`simple`  
+`simple()` - generate an id of default length (21) using the default character set  
 ```c
-// generate an id of default length (21)
-// using the default character list
 char *id = simple(); // _n7XMO8sd8lCDnDLmyezf
 ```
 
 
-`generate`  
+`generate(int size)` - generate an id of custom length using the default character list  
 
 ```c
-// generate an id of custom length
-// using the default character list
-char *id = generate(5); // DnDLm
+char *id = generate(5); // xgTpQ
 ```
 
-`custom`  
+`custom(char custom_alphs[], int size)` - generate an id of custom length using a custom character set  
 
 ```c
-// generate an id of custom length
-// using a custom character set
 char custom_alphs[] = "abcde";
 char *id = custom(custom_alphs, 7); // ecbebec
 ```

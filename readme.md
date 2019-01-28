@@ -1,5 +1,5 @@
 # nanoid.h  
-A 1.2 Kb single header [NanoID](https://github.com/ai/nanoid) implementation in C
+A 2.3 Kb single header [NanoID](https://github.com/ai/nanoid) implementation in C
 
 ## What is NanoID?
 NanoID is a tiny, secure URL-friendly unique string ID generator.  
@@ -32,3 +32,8 @@ char *id = generate(5); // xgTpQ
 char custom_alphs[] = "abcde";
 char *id = custom(custom_alphs, 7); // ecbebec
 ```
+
+## New Features
+Added **safer** functions, to use them you can prefix the default functions with safe_ for example you can use the **safe** version of by executing: `safe_simple()`.
+The new **safe** functions use /dev/urandom as a seed to generate the random block that is returned to the user. Due to this the header file is 1.1 Kb larger 
+than the original which was 1.2 Kb

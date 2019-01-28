@@ -6,10 +6,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-// default alphabet list 
+// default alphabet list
 // updated to nanoid 2.0
 static char alphs[] = {
-    '-', '_', 
+    '-', '_',
     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
@@ -66,8 +66,8 @@ char* safe_custom(char alphs[], int size) {
     unsigned int sum;
     FILE *rand_src;
 
-    buffer = malloc(size);
-    rand_buf = malloc(size);
+    buffer = (char *) malloc(size);
+    rand_buf = (char *) malloc(size);
     rand_src = fopen("/dev/urandom", "rb");
 
     if (rand_src == NULL)
@@ -75,8 +75,7 @@ char* safe_custom(char alphs[], int size) {
 
     fread(buffer, size, 1, rand_src);
 
-    for (int i = 0; i < size; ++i)
-    {
+    for (int i = 0; i < size; ++i) {
         sum += buffer[i];
     }
 
@@ -84,9 +83,8 @@ char* safe_custom(char alphs[], int size) {
 
     srand(sum);
 
-    for (int j = 0; j < size; ++j)
-    {
-        int random_num;
+    for (int j = 0; j < size; ++j) {
+        unsigned int random_num;
 
         do {
             random_num = rand();
